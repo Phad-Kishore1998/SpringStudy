@@ -1,0 +1,15 @@
+package com.pokemon.solgario.week1introduction.introductionToSpringBoot;
+
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Component
+//@Primary   //in case of ambiguity
+@ConditionalOnProperty(name = "deploy.env", havingValue = "production")
+public class ProdDB implements DB{
+	
+	public String getData() {
+		return "Prod DB";
+	}
+}

@@ -1,0 +1,11 @@
+package com.pokemon.solgario.week1introduction.introductionToSpringBoot;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class DevDB implements DB{
+	
+	String getData() {
+		return "Dev DB";
+	}
+}

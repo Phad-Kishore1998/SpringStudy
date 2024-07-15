@@ -1,0 +1,18 @@
+package com.pokemon.solgario.week1introduction.introductionToSpringBoot;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppConfig {
+	
+	//This is also a component.
+	
+	@Bean
+	Apple getApple() {
+		//We are creating a factory method which is returning the object.
+		return new Apple();
+		//Here developer is creating the object but lifecycle is handled by the SpringBootApplication
+		
+	}
+}

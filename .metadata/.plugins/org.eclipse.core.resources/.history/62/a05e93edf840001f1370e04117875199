@@ -1,0 +1,9 @@
+package com.pokemon.solgario.week1introduction.introductionToSpringBoot;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppConfig {
+	
+	
+}

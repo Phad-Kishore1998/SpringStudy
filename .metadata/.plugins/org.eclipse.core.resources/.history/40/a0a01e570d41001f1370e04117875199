@@ -1,0 +1,7 @@
+package com.pokemon.solgario.week1introduction.introductionToSpringBoot;
+
+public class DevDB {
+	String getData() {
+		return "Dev DB";
+	}
+}

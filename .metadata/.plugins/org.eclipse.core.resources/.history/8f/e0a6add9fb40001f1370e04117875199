@@ -1,0 +1,92 @@
+package com.pokemon.solgario.week1introduction.introductionToSpringBoot;
+
+import org.springframework.stereotype.Component;
+
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
+//@Component  //removed due to 3rd error while running the apple
+public class Apple {
+	
+	void eatApple() {
+		System.out.println("Eating Apple");
+	}
+	
+	@PostConstruct
+	void callThisBeforeAppleCreated() {
+		/*
+		  The PostConstruct annotation is used on a method that
+		  needs to be executed after dependency injection is done to performany initialization.
+		  This method must be invoked before the classis put into service. 
+		  This annotation must be supported on all classesthat support dependency injection
+		  The method annotated with PostConstruct must be invoked even 
+		  if the class doesnot request any resources to be injected. 
+		  Only onemethod in a given class can be annotated with this annotation
+		 */
+		System.out.println("Creating a Apple before eating");
+	}
+	
+	@PreDestroy
+	void callThisBeforeDestroy () {
+		/*
+		 	The PreDestroy annotation is used on a method as acallback notification to signal that the instance is in theprocess of being removed by the container. The method annotatedwith PreDestroy is typically used torelease resources that it has been holding.
+		 */
+		System.out.println("Apple is eaten");
+	}
+	
+//	Spring deals with billions of user. So its a good practice to use it like this.
+//	As we are not managing the lifecycle of all those objects.
+//	We are more focused on business logic and managing the beans.
+	
+	/*
+	 	We can use @Service in apple line 5 
+	 	as Service is also a component.
+	 	So, Service is stereotype annotation and defining the class type.
+	 	
+	 	Defining Beans
+
+1.Using Stereotype Annotations
+
+Annotate your class with one of the stereotype annotations
+(@Component, @Service, @Repository, @Controller).
+These Annotations inform spring that class should be managed as a bean.
+
+2. Explicit Bean declaration in configuration Class
+
+Create a configuration class and annotate it with @Configuration.
+This class will contain methods to define and configure beans.
+
+:=> We can load this configuration whenever required.
+	 */	
+}
+
+
+/*
+========================================Beans LifeCycle=====================================
+
+Bean Created
+The bean instance is created by invoking a static factory method
+or a instance factory method(for annotation-based configuration).
+
+Dependency Injected 
+Spring sets the bean's properties and dependencies either through setter injection,
+constructor injection, or field injection
+eg. :=> Apple injected in bean Spring Application.
+
+Bean Initialized
+
+if the bean implements the initializingBean interface or defines a 
+custom initialization method annotated with @PostConstruct,
+Spring invokes the initialization method after the bean has been configured.
+eg. :=> after all the dependency injected to beans.
+
+Bean is Used
+The bean is now fully initialized and read to be used by the application.
+eg. :=> in the run method of application.
+
+Bean Destroyed
+Spring invokes the destruction method when the bean is no longer needed or when 
+the application context is being shut down.
+
+
+*/

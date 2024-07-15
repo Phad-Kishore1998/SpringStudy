@@ -1,0 +1,127 @@
+package com.pokemon.solgario.week1introduction.introductionToSpringBoot;
+
+import org.springframework.beans.factory.DisposableBean;
+
+//import org.springframework.stereotype.Component;
+
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
+//@Component  //removed due to 3rd error while running the apple
+public class Apple {
+	
+	void eatApple() {
+		System.out.println("Eating Apple");
+	}
+	
+	@PostConstruct
+	void callThisBeforeAppleCreated() {
+		/*
+		  The PostConstruct annotation is used on a method that
+		  needs to be executed after dependency injection is done to perform many initialization.
+		  This method must be invoked before the class is put into service. 
+		  This annotation must be supported on all classes that support dependency injection
+		  The method annotated with PostConstruct must be invoked even 
+		  if the class does not request any resources to be injected. 
+		  Only one method in a given class can be annotated with this annotation
+		 */
+		System.out.println("Creating a Apple before eating");
+	}
+	
+	@PreDestroy
+	void callThisBeforeDestroy() {
+		/*
+		 	The PreDestroy annotation is used on a method as a callback notification 
+		 	to signal that the instance is in the process of being removed by the container. 
+		 	The method annotated with PreDestroy is typically used to
+		 	release resources that it has been holding.
+		 */
+		System.out.println("Apple is eaten");
+	}
+	
+	
+//	Spring deals with billions of user. So its a good practice to use it like this.
+//	As we are not managing the lifecycle of all those objects.
+//	We are more focused on business logic and managing the beans.
+	
+	/*
+	 	We can use @Service in apple line 5 
+	 	as Service is also a component.
+	 	So, Service is stereotype annotation and defining the class type.
+	 	
+	 	Defining Beans
+
+1.Using Stereotype Annotations
+
+Annotate your class with one of the stereotype annotations
+(@Component, @Service, @Repository, @Controller).
+These Annotations inform spring that class should be managed as a bean.
+
+2. Explicit Bean declaration in configuration Class
+
+Create a configuration class and annotate it with @Configuration.
+This class will contain methods to define and configure beans.
+
+:=> We can load this configuration whenever required.
+	 */	
+}
+
+
+/*
+========================================Beans LifeCycle=====================================
+
+Bean Created
+The bean instance is created by invoking a static factory method
+or a instance factory method(for annotation-based configuration).
+
+Dependency Injected 
+Spring sets the bean's properties and dependencies either through setter injection,
+constructor injection, or field injection
+eg. :=> Apple injected in bean Spring Application.
+
+Bean Initialized
+
+if the bean implements the initializingBean interface or defines a 
+custom initialization method annotated with @PostConstruct,
+Spring invokes the initialization method after the bean has been configured.
+eg. :=> after all the dependency injected to beans.
+
+Bean is Used
+The bean is now fully initialized and read to be used by the application.
+eg. :=> in the run method of application.
+
+Bean Destroyed
+Spring invokes the destruction method when the bean is no longer needed or when 
+the application context is being shut down.
+
+
+The @PostConstruct annotation is used to mark a method that should be invoked
+immediately after a bean has been constructed and all of its dependencies have been
+injected.
+
+The @PreDestory annotation is used to mark a method that should be invoked
+just before a bean is destoryed by the container. This method can perform any 
+necessary cleanup or resource releasing tasks.
+
+
+
+======================================Scope of beans=====================================
+
+singleton : (Default) Scopes a single bean definition to a single object instance for
+each Spring IoC container.
+
+eg. creating 
+@Autowired
+Apple obj2 
+
+then calling obj2.eatApple();
+
+Creating a apple is called only once for two objects.
+
+**************Most of the companies use this one only*****************
+
+prototype : Scopes a single bean deifnition to any number of object instances
+
+
+
+*/

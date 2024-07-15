@@ -1,0 +1,57 @@
+package com.pokemon.solgario.week1introduction.introductionToSpringBoot;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class DBService implements DB{
+	
+//	@Autowired
+//	DevDB db;
+	/*
+	 * After implementing DB on the class DBService we are changing it DB interface
+	 */
+	
+//	@Autowired
+//	ProdDB db;
+	
+	String getData() {
+		return db.getData();
+	}
+	
+	
+}
+
+/*
+====================================Dependency Injection====================================
+
+Alice wants to bake some cake
+Alice has a Bakery. but she has no ingredients for chocolate cake
+Ingredients like frosting, syrup has to be taken from market. 
+But she is doing that part it will consume here lot of time.
+
+Alice hire Bob to get the ingredients according to her.
+She has delegated the work of ingredient to Bob.
+
+Similarly: if our code is dependent on some other code and you dont want to manage it.
+We employ dempendency injection to do this.
+
+1. LifeCycle of Bean
+2. Loosely Couple as well:
+	like. Alice is baking chocolate cake she wants to bake the strawberry cake.
+	For this obviously she wont build a separate bakery only ingredients will be different.
+	if she does that building separate bakery that will be tightly coupled system.
+	
+	Similarly: Multiple type of configuration for different envs. like PRD, Testing and Staging
+	With the single piece of code we have different application on diff. env.
+	
+
+Dependency Injection in the context of the Spring Framework is a design pattern and 
+technique used to achieve loose coupling  between components in a software application.
+In a DI scenario, instead of a component creating its dependencies directly,
+the dependencies are injected into component from an external source.
+Typically managed by a framework like Spring.
+
+eg. Development Prd:=> DB using DI
+
+*/

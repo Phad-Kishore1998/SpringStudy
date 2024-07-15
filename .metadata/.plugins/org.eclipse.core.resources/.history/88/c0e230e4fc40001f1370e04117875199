@@ -1,0 +1,73 @@
+package com.pokemon.solgario.week1introduction.introductionToSpringBoot;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+/* This annotation is the starting point in the Application
+ 	Everything is a bean at the end.
+ */
+@SpringBootApplication
+public class IntroductionToSpringBootApplication implements CommandLineRunner{
+	@Autowired
+	Apple obj;	//Auto Wired notify the spring boot Applicaiton
+	//that this object should be injected wherever required.
+	//this is called dependency injection.
+	//bean is created and the dependency injected. No new created.
+	
+	public static void main(String[] args) {
+		SpringApplication.run(IntroductionToSpringBootApplication.class, args);
+		
+		/* Basic way of creation in Java */
+//		Apple obj = new Apple();
+//		obj.eatApple();
+		
+//		obj.eatApple(); 
+		/*
+		now its given an error again saying even though the apple obj is at line 12
+		we cannot use non static inside static method.
+		So we implements interface commandLineRunner for run method which 
+		we will @override in here below static void main
+		*/
+		
+	}
+
+	//Think it as a two main method all the args in main method are passed down to run
+	@Override
+	public void run(String... args) throws Exception {
+		// TODO Auto-generated method stub
+		/* Interface used to indicate that a bean should run 
+		 * when it is contained within a SpringApplication. 
+		 * Multiple CommandLineRunner beans can be defined 
+		 * within the same application context and 
+		 * can be ordered using the Orderedinterface or @Order annotation. 
+		*/
+		
+		obj.eatApple();
+		//1st Error: Null Pointer
+		/*
+			it will give a null pointer exception as obj is not intantiate still
+			solution is to provide @Component to the Apple class
+			You can check the error by removing the @Componenet from the apple.
+		*/
+		
+		//2nd Error: NullPointer
+		/*
+			We will still get the error after adding the @Component to apple
+			As we haven't asked the application to injected the dependency of Apple inside the bean.
+			it is solved by adding @Autowired in the Apple object creation at 
+			line 12 above the main mehtod
+		*/
+		//3rd Error: Two Bean found Apple.class and AppConfig.class
+		/*
+		 	When we run with App config we will get a error that two bean were found 
+		 	and we required only one bean.
+		 	Field obj in com.pokemon.solgario.week1introduction.introductionToSpringBoot.IntroductionToSpringBootApplication required a single bean, but 2 were found
+		 	
+		 	For this we will remove the @Component from the Class Apple.
+		 */
+		
+	}
+
+}

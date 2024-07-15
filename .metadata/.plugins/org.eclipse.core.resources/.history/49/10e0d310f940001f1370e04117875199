@@ -1,0 +1,15 @@
+package com.pokemon.solgario.week1introduction.introductionToSpringBoot;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+@Configuration
+public class AppConfig {
+	
+	//This is also a component.
+	
+	@Bean
+	Apple getApple() {
+		
+	}
+}
