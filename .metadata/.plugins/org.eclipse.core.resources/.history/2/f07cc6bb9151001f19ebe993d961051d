@@ -1,0 +1,17 @@
+package com.pokemon.solgario.week1introduction.homework;
+
+public class CakeBaker {
+
+	final private Frosting frost;
+	final private Syrup syrup;
+	
+	CakeBaker(Frosting frost, Syrup syrup) {
+		this.frost = frost;
+		this.syrup = syrup;
+	}
+	
+	public static void bakeCake() {
+		
+		System.out.println("Baking Cake");
+	}
+}

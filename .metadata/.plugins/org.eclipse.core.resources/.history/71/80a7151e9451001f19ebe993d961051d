@@ -1,0 +1,25 @@
+package com.pokemon.solgario.week1introduction.homework;
+
+import org.springframework.context.annotation.Primary;
+import org.springframework.stereotype.Component;
+
+@Component
+@Primary
+public class Strawberry implements Frosting, Syrup{
+	
+	
+	@Override
+	public String getFrostingType() {
+		// TODO Auto-generated method stub
+		return "Strawberry Frosting";
+	}
+	
+	@Override
+	public String getSyrupType() {
+		// TODO Auto-generated method stub
+		return "Starberry Syrup";
+	}
+	
+}
+
+

@@ -1,0 +1,5 @@
+package com.pokemon.solgario.week1introduction.homework;
+
+public class Chocolate implements Frosting, Syrup{
+
+}

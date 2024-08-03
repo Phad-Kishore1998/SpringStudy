@@ -1,0 +1,17 @@
+package com.pokemon.solgario.week1introduction.homework;
+
+public class Chocolate implements Frosting, Syrup{
+
+	@Override
+	public String getFrostingType() {
+		// TODO Auto-generated method stub
+		return "Chocolate Frostong";
+	}
+	
+	@Override
+	public String getSyrupType() {
+		// TODO Auto-generated method stub
+		return "Chocolate Syrup";
+	}
+	
+}

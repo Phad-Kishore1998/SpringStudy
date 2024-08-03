@@ -1,0 +1,22 @@
+package com.pokemon.solgario.week1introduction.homework;
+
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CakeBaker {
+
+	final private Frosting frost;
+	final private Syrup syrup;
+	
+	CakeBaker(Frosting frost, Syrup syrup) {
+		this.frost = frost;
+		this.syrup = syrup;
+	}
+	
+	public void bakeCake() {
+		frost.getFrostingType();
+		syrup.getSyrupType();
+		System.out.println("Baking Cake");
+	}
+}

@@ -1,0 +1,6 @@
+package com.pokemon.solgario.week1introduction.homework;
+
+public interface Syrup {
+
+	String getSyrupType();
+}

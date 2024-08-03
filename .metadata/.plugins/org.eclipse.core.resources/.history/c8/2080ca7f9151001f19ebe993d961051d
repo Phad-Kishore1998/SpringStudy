@@ -1,0 +1,28 @@
+package com.pokemon.solgario.week1introduction.homework;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Chocolate implements Frosting, Syrup{
+
+	final private Frosting frost;
+	final private Syrup syrup;
+	
+	Chocolate(Frosting frost, Syrup syrup) {
+		this.frost = frost;
+		this.syrup = syrup;
+	}
+	
+	@Override
+	public String getFrostingType() {
+		// TODO Auto-generated method stub
+		return "Chocolate Frostong";
+	}
+	
+	@Override
+	public String getSyrupType() {
+		// TODO Auto-generated method stub
+		return "Chocolate Syrup";
+	}
+	
+}

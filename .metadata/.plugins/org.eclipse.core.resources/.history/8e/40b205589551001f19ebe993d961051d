@@ -1,0 +1,3 @@
+spring.application.name=introductionToSpringBoot
+deploy.env=production
+cake.type=chocolate

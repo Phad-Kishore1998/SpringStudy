@@ -1,0 +1,8 @@
+package com.pokemon.solgario.week1introduction.homework;
+
+public class CakeBaker {
+
+	public static void bakeCake() {
+		
+	}
+}

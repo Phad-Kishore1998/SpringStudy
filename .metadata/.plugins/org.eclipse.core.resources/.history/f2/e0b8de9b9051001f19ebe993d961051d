@@ -1,0 +1,14 @@
+package com.pokemon.solgario.week1introduction.homework;
+
+public class Strawberry implements Frosting, Syrup{
+	@Override
+	public String getFrostingType() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public Strawberry() {
+		// TODO Auto-generated constructor stub
+	}
+	
+}
